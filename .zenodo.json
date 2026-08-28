@@ -1,21 +1,21 @@
 {
-    "title": "Code 1-3: reproducible diagnostic-band identification of field microplastics and naming divergence across six spectral-library streams",
-    "upload_type": "software",
-    "description": "Executed notebooks (Code 1-3, outputs preserved in every cell) and the data products cited in several sections of the manuscript. Code 1 builds the Raman diagnostic-band reference; Code 2 the in-house FT-IR spec_class library and OMNIC record; Code 3 the naming-divergence comparison across six labelling streams. Licence: CC BY-NC 4.0.",
-    "creators": [
-        {
-            "name": "Kim, Youjin"
-            "orcid": "0009-0000-0030-3560"
-        }
-    ],
-    "license": "CC-BY-NC-4.0",
-    "version": "v1.0-manuscript",
-    "keywords": [
-        "microplastics",
-        "Raman spectroscopy",
-        "FT-IR spectroscopy",
-        "spectral library",
-        "naming divergence",
-        "reproducibility"
-    ]
+  "title": "Code 1-3: reproducible diagnostic-band identification of field microplastics and naming divergence across six spectral-library streams",
+  "upload_type": "software",
+  "description": "Executed notebooks (Code 1-3, outputs preserved in every cell) and the data products cited in several sections of the manuscript. Licence: CC BY-NC 4.0.",
+  "creators": [
+    {
+      "name": "Kim, Youjin",
+      "orcid": "0009-0000-0030-3560"
+    }
+  ],
+  "license": "cc-by-nc-4.0",
+  "version": "v1.0-manuscript",
+  "keywords": [
+    "microplastics",
+    "Raman spectroscopy",
+    "FT-IR spectroscopy",
+    "spectral library",
+    "naming divergence",
+    "reproducibility"
+  ]
 }
