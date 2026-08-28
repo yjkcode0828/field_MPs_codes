@@ -1,0 +1,45 @@
+{
+  "produced_by": "Code 1 v1.0",
+  "produced_at": "2026-08-28T05:25:18",
+  "handoff_file": "ground_truth_for_code2.csv",
+  "direction": "Code 1 -> Code 2, one way; nothing is read back",
+  "n_particles": 47,
+  "n_columns": 46,
+  "join_key": "file",
+  "provisional": false,
+  "gt_source_counts": {
+    "rule": 33,
+    "withheld": 14
+  },
+  "reference_kind": "Raman Code1 Reference - rule output (band library + rule C + R3 floor). NOT a ground truth; agreement with it is inter-method agreement, not accuracy.",
+  "evidence_floor_R3": {
+    "margin_min": 1,
+    "fluorescence_corr": 0.98,
+    "fluorescence_k1_max": 2
+  },
+  "column_note": "the gt_ prefix denotes the Raman Code1 Reference, not a verified truth; kept for join compatibility with Code 2 and Code 3",
+  "support_level_counts": {
+    "A+": 11,
+    "A": 11,
+    "B": 6,
+    "C": 5,
+    "NT": 0,
+    "WH": 14
+  },
+  "gt_vocabulary": [
+    "",
+    "polyolefin_PE",
+    "polyolefin_PP",
+    "polystyrene"
+  ],
+  "band_library": "v1.0",
+  "rule_C": {
+    "K_MIN": 3,
+    "GAP_MIN": 4,
+    "MATCH_TOL": 8.0
+  },
+  "method_B": "correlation matching against SLoPP / SLoPP-E (NOT the Open Specy software; its accuracy figures do not transfer)",
+  "stations": [
+    "S1"
+  ]
+}
