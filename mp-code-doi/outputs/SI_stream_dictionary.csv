@@ -1,0 +1,8 @@
+﻿label,csv_column,modality,score_column,library,active
+1. Raman ref,raman_gt,Raman,raman_conf,"reference axis: diagnostic band library, ranking rule and evidence floor; a reproducible rule, not a verified ground truth",True
+2. SLoPP,B_label,Raman,B_r,"SLoPP and SLoPP-E Raman libraries, matched with the Code 1 preprocessing; the Open Specy software was not used",True
+3. spec_class,spec_class,FT-IR,,"in-house rule, functional-group level classes",True
+4. omnic_name,omnic_name,FT-IR,hqi,"OMNIC commercial libraries (Thermo Fisher), hit name as returned",True
+5. OS_cor,openspecy_name,FT-IR,openspecy_match_val,"Open Specy derivative reference library, match_spec correlation",True
+6. OS_ml,ml_name,FT-IR,ml_prob,"Open Specy model_derivative multinomial classifier, ai_classify",True
+7. siMPLe,simple_name,FT-IR,simple_score,"siMPLe ATR single-spectra reference library; the siMPLe software, which targets FPA imaging maps, was not run",True

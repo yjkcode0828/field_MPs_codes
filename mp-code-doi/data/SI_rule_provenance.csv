@@ -1,0 +1,11 @@
+﻿rule,sources
+"ALS baseline (lambda=1e5, p=0.01)",Eilers2005
+SNV,Barnes1989
+"SG 2nd derivative (window 15, order 3 = user choice)",Savitzky1964
+PP crystalline bands (998/973/841) lost first -> polyolefin_unresolved,Anshari2025
+carbonyl index (modified windows 1690-1760 / 1420-1490),Almond2020
+"1715 read as PE oxidation, not PET: carbonyl on a PE skeleton",Jung2018 ; Almond2020
+SAN = nitrile 2237 + aromatic bands,Coates2000 ; Jung2018
+PVC multi-band combination (CCl + 1250 + 1426/1330),Beltran1997 ; Jung2018
+calcite / aragonite polymorph (855),Vagenas2003
+thresholds REL_PRESENT / REL_STRONG / SIO_DOMINATES / CI_WEATHERED,"(data-tuned values, not from literature)"
