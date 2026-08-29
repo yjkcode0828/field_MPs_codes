@@ -1,9 +1,11 @@
 # [repo name]: Code 1-3 for "[Article title]"
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22145774.svg)](https://doi.org/10.5281/zenodo.22145774)
+
 Companion code and data products for
 [Authors] (2026). *[Article title]*. *[Journal]*. DOI: [article DOI]
 
-**Archived version:** release `v1.0-manuscript` · Zenodo DOI **10.5281/zenodo.22145774**
+**Archived version:** release `v1.0.1-manuscript` · Zenodo DOI **10.5281/zenodo.22145774**
 This is the version cited in section 2.7 of the article. The three notebooks are archived
 **as executed**: every cell retains the output of the final end-to-end run, so the numbers
 in the article can be checked against cell outputs without re-running anything.
