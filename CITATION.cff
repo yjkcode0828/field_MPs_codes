@@ -7,6 +7,7 @@ type: software
 title: >-
   Code 1-3: reproducible diagnostic-band identification of field
   microplastics and naming divergence across six spectral-library streams
+doi: 10.5281/zenodo.22145774
 version: v1.0-manuscript
 date-released: "2026-08-28"
 repository-code: "https://github.com/yjkcode0828/field_MPs_codes"
