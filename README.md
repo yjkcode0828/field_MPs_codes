@@ -1,23 +1,18 @@
-# [repo name]: Code 1-3 for "[Article title]"
+# field_MPs_codes: Code 1-3 for "[Article title]"
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22145774.svg)](https://doi.org/10.5281/zenodo.22145774)
 
 Companion code and data products for
-[Authors] (2026). *[Article title]*. *[Journal]*. DOI: [article DOI]
+Kim, Y. (2026). *[Article title]*. Manuscript in preparation.
 
-**Archived version:** release `v1.0.1-manuscript` · Zenodo DOI **10.5281/zenodo.22145774**
-This is the version cited in section 2.7 of the article. The three notebooks are archived
-**as executed**: every cell retains the output of the final end-to-end run, so the numbers
-in the article can be checked against cell outputs without re-running anything.
+**Archived version:** release `v1.0.1-manuscript` · Zenodo DOI **10.5281/zenodo.22145774** (this concept DOI resolves to the latest archived version; the manuscript cites the version DOI of `v1.0.1-manuscript`).
+The three notebooks are archived **as executed**: every cell retains the output of the final end-to-end run, so the numbers in the article can be checked against cell outputs without re-running anything.
 
-**Licence.** CC BY-NC 4.0: free to download, study and reuse for research and other
-non-commercial purposes, with citation of the article and this archive (see `LICENSE`
-and `CITATION.cff`). Commercial use requires permission from the corresponding author.
+**Licence.** CC BY-NC 4.0: free to download, study and reuse for research and other non-commercial purposes, with citation of the article and this archive (see `LICENSE` and `CITATION.cff`). Commercial use requires permission from the corresponding author.
 
 ## Pipeline
 
-Three notebooks with strictly one-way data flow. No label, score or flag produced
-downstream re-enters an upstream notebook.
+Three notebooks with strictly one-way data flow. No label, score or flag produced downstream re-enters an upstream notebook.
 
 | Notebook | Version | Reads | Writes |
 |---|---|---|---|
@@ -25,8 +20,7 @@ downstream re-enters an upstream notebook.
 | `Code2_spec_class_omnic.ipynb` | framework v1.0, parameter set p1 | Code 1 hand-off, field FT-IR spectra*, OMNIC hit names | `code3_input_catalogue_v01.csv`, `params_snapshot_p1.json` |
 | `Code3_naming_divergence.ipynb` | v1.0 | Code 2 catalogue, Open Specy + siMPLe libraries (external) | `code3_master_n47.csv`, `SI_stream_dictionary.csv`, all comparisons and figures |
 
-\* Raw spectra are not in this repository (NOTICE.md); the archived outputs make every
-downstream step checkable without them.
+\* Raw spectra are not in this repository (see `NOTICE.md`); the archived outputs make every downstream step checkable without them.
 
 ## Repository layout
 
@@ -48,12 +42,12 @@ outputs/
   code3_input_catalogue_v01.csv      # Code 2 -> Code 3 (particle x stream catalogue)
   code3_master_n47.csv               # Code 3 master table = ESI Data S1 (verbatim labels)
   SI_stream_dictionary.csv           # table label <-> CSV column bridge (ESI)
-LICENSE · CITATION.cff · NOTICE.md · README.md
+LICENSE · CITATION.cff · NOTICE.md · README.md · .zenodo.json
 ```
 
-## Where the items named in section 2.7 live
+## Where the items named in the article's data-availability statement live
 
-| Item (section 2.7) | Location |
+| Item | Location |
 |---|---|
 | Three notebooks, archived as executed | `notebooks/` |
 | Diagnostic band library and its source ledger | band positions defined in Code 1 §2; per-band sources in `data/band_provenance.csv` |
@@ -65,9 +59,7 @@ LICENSE · CITATION.cff · NOTICE.md · README.md
 | Particle photographs | ESI of the article (not in this repository) |
 | Raw FT-IR and Raman spectra | corresponding author, on reasonable request |
 
-Sensitivity grids, null-model tables and per-band performance tables are in the ESI of
-the article; the same numbers appear in the cell outputs of Code 1 sections 12-15 and
-Code 2 sections 0.5-0.10.
+Sensitivity grids, null-model tables and per-band performance tables are in the ESI of the article; the same numbers appear in the cell outputs of Code 1 sections 12-15 and Code 2 sections 0.5-0.10.
 
 ## Labelling streams (as in the article tables)
 
@@ -81,32 +73,22 @@ Code 2 sections 0.5-0.10.
 | 6. OS_ml | FT-IR | Open Specy `model_derivative`, `ai_classify` | `ml_name` |
 | 7. siMPLe | FT-IR | siMPLe ATR single-spectra reference library (siMPLe software not run) | `simple_name` |
 
-Two analysis layers: reference-free (N = 47) and reference-anchored (N = 33; 14 of the 47
-were withheld by the evidence floor). The two denominators are never mixed.
+Two analysis layers: reference-free (N = 47) and reference-anchored (N = 33; 14 of the 47 were withheld by the evidence floor). The two denominators are never mixed.
 
 ## Re-running
 
-The archived notebooks already contain their outputs; re-execution is optional and the raw
-field spectra (not distributed) are required only for Code 1 sections 3-11 and Code 2
-section 0.3. Everything downstream of the committed hand-off files can be re-run:
-Code 3 needs only `outputs/code3_input_catalogue_v01.csv`, `data/params_snapshot_p1.json`
-and the external libraries in `NOTICE.md`. Environment: Google Colab, Python 3.13
-(NumPy 2.1, SciPy 1.16, pandas 2.2, Matplotlib 3.10; exact versions in
-`data/environment.json`) and, for Code 3, R with the `OpenSpecy` package.
+The archived notebooks already contain their outputs; re-execution is optional. The raw field spectra (not distributed) are required only for Code 1 sections 3-11 and Code 2 section 0.3; everything downstream of the committed hand-off files can be re-run. Code 3 needs only `outputs/code3_input_catalogue_v01.csv`, `data/params_snapshot_p1.json` and the external libraries listed in `NOTICE.md`. Environment: Google Colab, Python 3.13 (NumPy 2.1, SciPy 1.16, pandas 2.2, Matplotlib 3.10; exact versions in `data/environment.json`) and, for Code 3, R with the `OpenSpecy` package.
 
 ## How to cite
 
-Please cite **both** the article and this archive (the licence makes attribution a
-condition of use):
+Please cite **both** the article and this archive (the licence makes attribution a condition of use):
 
-> [Authors] (2026). [Article title]. *[Journal]*. DOI [article DOI]
-> [Authors] (2026). [repo name] (v1.0-manuscript). Zenodo. DOI 10.5281/zenodo.22145774
+> Kim, Y. (2026). [Article title]. *[Journal]*. DOI: [article DOI when available]
+>
+> Kim, Y. (2026). Code 1-3: reproducible diagnostic-band identification of field microplastics and naming divergence across six spectral-library streams (v1.0.1-manuscript) [Software]. Zenodo. https://doi.org/10.5281/zenodo.22145774
 
 `CITATION.cff` is provided; GitHub renders it under "Cite this repository".
 
 ## Licence
 
-Code, notebooks and project-authored data products: **CC BY-NC 4.0** (non-commercial use
-with attribution; see `LICENSE`). Third-party libraries are excluded and remain under
-their own terms (`NOTICE.md`). The article itself is subject to the publisher's terms and
-is separate from this repository.
+Code, notebooks and project-authored data products: **CC BY-NC 4.0** (non-commercial use with attribution; see `LICENSE`). Third-party libraries are excluded and remain under their own terms (`NOTICE.md`). The article itself is subject to the publisher's terms and is separate from this repository.
