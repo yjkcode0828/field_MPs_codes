@@ -1,4 +1,4 @@
-# field_MPs_codes: Code 1-3 for "[Article title]"
+# field_MPs_codes: Code 1-3 for "[A permutation-calibrated Raman band rule for auditing six spectral identification systems on field-weathered microplastics]"
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22145774.svg)](https://doi.org/10.5281/zenodo.22145774)
 
