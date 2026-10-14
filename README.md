@@ -1,12 +1,14 @@
-# field_MPs_codes: Code 1-3 for "[A permutation-calibrated Raman band rule for auditing six spectral identification systems on field-weathered microplastics]"
+# field_MPs_codes: Code 1-3 for "[Article title]"
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22145774.svg)](https://doi.org/10.5281/zenodo.22145774)
 
 Companion code and data products for
 Kim, Y. (2026). *[Article title]*. Manuscript in preparation.
 
-**Archived version:** release `v1.0.1-manuscript` · Zenodo DOI **10.5281/zenodo.22145774** (this concept DOI resolves to the latest archived version; the manuscript cites the version DOI of `v1.0.1-manuscript`).
+**Archived version:** release `v1.1.0-manuscript` (re-executed end to end on 13 October 2026) · Zenodo DOI **10.5281/zenodo.22145774** (this concept DOI resolves to the latest archived version; the manuscript cites the version DOI of `v1.1.0-manuscript`).
 The three notebooks are archived **as executed**: every cell retains the output of the final end-to-end run, so the numbers in the article can be checked against cell outputs without re-running anything.
+
+**Relation to `v1.0.1-manuscript` (29 August 2026).** The decision logic is unchanged. The Code 1 hand-off read by Code 2 (`outputs/ground_truth_for_code2.csv`) is byte-identical to the first release (SHA-256 checked in Code 1 §17-6). `v1.1.0-manuscript` differs only in output wording, annotations, figure numbering aligned with the manuscript, the cache-settings record in Code 1 §12-4 and the supplementary analysis Code 3 E.3 (see *Changes* below).
 
 **Licence.** CC BY-NC 4.0: free to download, study and reuse for research and other non-commercial purposes, with citation of the article and this archive (see `LICENSE` and `CITATION.cff`). Commercial use requires permission from the corresponding author.
 
@@ -16,9 +18,9 @@ Three notebooks with strictly one-way data flow. No label, score or flag produce
 
 | Notebook | Version | Reads | Writes |
 |---|---|---|---|
-| `Code1_raman_reference.ipynb` | v1.0 | field Raman spectra*, SLoPP/SLoPP-E (external) | `ground_truth_for_code2.csv`, `handoff_manifest.json`, `sens_C_delta.csv` |
-| `Code2_spec_class_omnic.ipynb` | framework v1.0, parameter set p1 | Code 1 hand-off, field FT-IR spectra*, OMNIC hit names | `code3_input_catalogue_v01.csv`, `params_snapshot_p1.json` |
-| `Code3_naming_divergence.ipynb` | v1.0 | Code 2 catalogue, Open Specy + siMPLe libraries (external) | `code3_master_n47.csv`, `SI_stream_dictionary.csv`, all comparisons and figures |
+| `Code1_raman_reference.ipynb` | v1.0 | field Raman spectra*, SLoPP/SLoPP-E (external) | `ground_truth_for_code2.csv`, `handoff_manifest.json`, `sens_C_delta.csv`, `band_provenance.csv`, `environment.json`, `validation/` |
+| `Code2_spec_class_omnic.ipynb` | framework v1.0, parameter set p1 | Code 1 hand-off, field FT-IR spectra*, OMNIC hit names | `code3_input_catalogue_v01.csv`, `params_snapshot_p1.json`, `SI_band_provenance.csv`, `SI_rule_provenance.csv` |
+| `Code3_naming_divergence.ipynb` | v1.0 | Code 2 catalogue, Open Specy + siMPle libraries (external) | `code3_master_n47.csv`, `SI_stream_dictionary.csv`, `SI_*.csv` supplementary tables, `code3_manifest.json`, all comparisons and figures |
 
 \* Raw spectra are not in this repository (see `NOTICE.md`); the archived outputs make every downstream step checkable without them.
 
@@ -36,12 +38,27 @@ data/
   params_snapshot_p1.json            # frozen parameter snapshot, incl. THRESHOLD_PROVENANCE (Code 2)
   handoff_manifest.json              # Code 1 -> Code 2 contract, incl. RULE_C_PROVENANCE
   environment.json                   # software versions of the archived run
+  validation/                        # Code 1 §17: accuracy on spectra of known identity (SLoPP / SLoPP-E)
+    validation_truth_v1.csv          #   scope of every depositor name, fingerprinted before any decision (§17-0a)
+    validation_protocol_v1.json      #   every analysis choice, fingerprinted before any decision (§17-0b)
+    validation_equivalence_field47.csv  # §17-2: the frozen rule reproduces all 47 field assignments
+    validation_metrics.csv           #   §17-4: precision, coverage, false-positive rate (Table 3b)
+    validation_confusion_SLoPP.csv   #   §17-4: confusion matrix, SLoPP (Fig. 2a)
+    validation_confusion_SLoPP-E.csv #   §17-4: confusion matrix, SLoPP-E (Fig. 2b)
+    validation_offset_diagnostic.csv #   §17-4: key-band offsets from the nearest peak
+    validation_manifest.json         #   §17-6: fingerprints of the validation outputs
 outputs/
-  ground_truth_for_code2.csv         # Code 1 -> Code 2 (the Raman Code1 Reference)
+  ground_truth_for_code2.csv         # Code 1 -> Code 2 (the Raman Code 1 Reference)
   sens_C_delta.csv                   # Code 1 -> Code 2 (wavenumber-offset sensitivity)
   code3_input_catalogue_v01.csv      # Code 2 -> Code 3 (particle x stream catalogue)
-  code3_master_n47.csv               # Code 3 master table = ESI Data S1 (verbatim labels)
+  code3_master_n47.csv               # Code 3 master table (verbatim labels of all 47 particles)
   SI_stream_dictionary.csv           # table label <-> CSV column bridge (ESI)
+  SI_pairwise_mcnemar_bh.csv         # Code 3 E.1: pairwise McNemar tests, Benjamini-Hochberg corrected
+  SI_ari_by_stratum.csv              # Code 3 E.1: adjusted Rand index by stratum (emitted / withheld)
+  SI_granularity_stream5.csv         # Code 3 E.2: stream 5 at entry level vs class level
+  SI_granularity_ari.csv             # Code 3 E.2: ARI of stream 5 pairs at both levels
+  SI_pepp_by_agreement.csv           # Code 3 E.3: PE/PP completeness where both Raman methods agree
+  code3_manifest.json                # Code 3 run record
 LICENSE · CITATION.cff · NOTICE.md · README.md · .zenodo.json
 ```
 
@@ -53,13 +70,33 @@ LICENSE · CITATION.cff · NOTICE.md · README.md · .zenodo.json
 | Diagnostic band library and its source ledger | band positions defined in Code 1 §2; per-band sources in `data/band_provenance.csv` |
 | Threshold-provenance records | `RULE_C_PROVENANCE` in `data/handoff_manifest.json` (Raman rule); `THRESHOLD_PROVENANCE` in `data/params_snapshot_p1.json` (FT-IR rules) |
 | Frozen parameter snapshot | `data/params_snapshot_p1.json` |
-| Full catalogue of verbatim labels (ESI Data S1) | `outputs/code3_master_n47.csv` |
+| Validation truth table and protocol, with fingerprints | `data/validation/` |
+| Full catalogue of verbatim labels | `outputs/code3_master_n47.csv` |
 | Stream dictionary | `outputs/SI_stream_dictionary.csv` |
 | Preprocessed Raman spectra of the 47 comparison particles, with diagnostic-band evidence | worksheet output of Code 1, section 11 (in the notebook) |
 | Particle photographs | ESI of the article (not in this repository) |
 | Raw FT-IR and Raman spectra | corresponding author, on reasonable request |
 
-Sensitivity grids, null-model tables and per-band performance tables are in the ESI of the article; the same numbers appear in the cell outputs of Code 1 sections 12-15 and Code 2 sections 0.5-0.10.
+Sensitivity grids, null-model tables, per-band performance tables and the validation on spectra of known identity are in the cell outputs of Code 1 sections 12-17 and Code 2 sections 0.5-0.10; the ESI of the article reproduces the subset it cites.
+
+## Where the article's figures and tables come from
+
+| Article | Notebook cell |
+|---|---|
+| Fig. 1 (a, b) | Code 1 §11-1 (copies of the §11 worksheet figures for 0517S1-1 and 0614S1-1) |
+| Fig. 2 | Code 1 §17-5 (`Fig2_validation_confusion`) |
+| Fig. 3 | Code 3 F1b (`Fig3_alluvial_verbatim`) |
+| Fig. 5 | Code 3 F1 (`Fig5_ari_matrix`) |
+| Fig. 6 | Code 3 F1a (`Fig6_completeness_ci_pepp`) |
+| Fig. 7 | Code 3 F1c (`Fig7_score_vs_agreement`) |
+| Fig. S5 | Code 1 §12-2 and §12-3 (`null_A1_*.png`) |
+| Table 2 | Code 1 §16 |
+| Table 3a | Code 1 §13, §14, §12, §12-2, §12-3 |
+| Table 3b | Code 1 §17-4 and §17-6 |
+| Table 4 | Code 3 D.1 |
+| Table 5 | Code 3 C1 (rows of `code3_master_n47.csv`) |
+
+Fig. 4 (FT-IR spectra of the Table 5 particles) was drawn from the archived spectra with the band windows of Code 2 §0.2 and is not produced by the three notebooks.
 
 ## Labelling streams (as in the article tables)
 
@@ -71,13 +108,18 @@ Sensitivity grids, null-model tables and per-band performance tables are in the 
 | 4. omnic_name | FT-IR | OMNIC commercial libraries, hit name verbatim | `omnic_name` |
 | 5. OS_cor | FT-IR | Open Specy `derivative` library, `match_spec` | `openspecy_name` |
 | 6. OS_ml | FT-IR | Open Specy `model_derivative`, `ai_classify` | `ml_name` |
-| 7. siMPLe | FT-IR | siMPLe ATR single-spectra reference library (siMPLe software not run) | `simple_name` |
+| 7. siMPle | FT-IR | siMPle ATR single-spectra reference library (siMPle software not run) | `simple_name` |
 
 Two analysis layers: reference-free (N = 47) and reference-anchored (N = 33; 14 of the 47 were withheld by the evidence floor). The two denominators are never mixed.
 
 ## Re-running
 
-The archived notebooks already contain their outputs; re-execution is optional. The raw field spectra (not distributed) are required only for Code 1 sections 3-11 and Code 2 section 0.3; everything downstream of the committed hand-off files can be re-run. Code 3 needs only `outputs/code3_input_catalogue_v01.csv`, `data/params_snapshot_p1.json` and the external libraries listed in `NOTICE.md`. Environment: Google Colab, Python 3.13 (NumPy 2.1, SciPy 1.16, pandas 2.2, Matplotlib 3.10; exact versions in `data/environment.json`) and, for Code 3, R with the `OpenSpecy` package.
+The archived notebooks already contain their outputs; re-execution is optional. The raw field spectra (not distributed) are required only for Code 1 sections 3-11 and Code 2 section 0.3; everything downstream of the committed hand-off files can be re-run. Code 3 needs only `outputs/code3_input_catalogue_v01.csv`, `data/params_snapshot_p1.json` and the external libraries listed in `NOTICE.md`. Environment: Google Colab, Python 3.13 (NumPy 2.1, SciPy 1.16, pandas 2.2, Matplotlib 3.10; exact versions in `data/environment.json`) and, for Code 3, R 4.6 with `OpenSpecy` 1.5.3 via `rpy2`.
+
+## Changes
+
+- **v1.1.0-manuscript (2026-10-14).** All three notebooks re-executed end to end on 13 October 2026. No change to any decision rule, threshold or vocabulary; the Code 1 hand-off is byte-identical to v1.0.1 (Code 1 §17-6). Code 1 §12-4 now records the settings under which the SLoPP corpus cache was built and 0-Z carries that record back to the project folder. Code 3 gained section E.3 (PE/PP completeness restricted to particles on which both Raman methods agree) and writes its supplementary tables to `outputs/`. Output wording, figure file names and section references were aligned with the manuscript; `data/validation/` added.
+- **v1.0.1-manuscript (2026-08-29).** First archived release.
 
 ## How to cite
 
@@ -85,7 +127,7 @@ Please cite **both** the article and this archive (the licence makes attribution
 
 > Kim, Y. (2026). [Article title]. *[Journal]*. DOI: [article DOI when available]
 >
-> Kim, Y. (2026). Code 1-3: reproducible diagnostic-band identification of field microplastics and naming divergence across six spectral-library streams (v1.0.1-manuscript) [Software]. Zenodo. https://doi.org/10.5281/zenodo.22145774
+> Kim, Y. (2026). Code 1-3: reproducible diagnostic-band identification of field microplastics and naming divergence across six spectral-library streams (v1.1.0-manuscript) [Software]. Zenodo. https://doi.org/10.5281/zenodo.22145774
 
 `CITATION.cff` is provided; GitHub renders it under "Cite this repository".
 
