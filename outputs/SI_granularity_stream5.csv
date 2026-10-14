@@ -1,0 +1,3 @@
+﻿granularity,n_labels,observed_47,purity_ge2,completeness
+entry level (spectrum_identity),11,19,0.808,0.455
+class level (material_class),5,7,0.774,0.667

@@ -1,0 +1,3 @@
+﻿stratum,n_pairs,mean,median,min,max
+class emitted (n=33),15,0.532,0.664,0.151,0.796
+withheld (n=14),15,0.233,0.207,-0.03,0.523
