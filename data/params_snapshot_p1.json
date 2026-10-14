@@ -1,6 +1,6 @@
 {
   "framework_version": "v1.0",
-  "frozen_at_utc": "2026-08-28T04:42:47.905132+00:00",
+  "frozen_at_utc": "2026-10-13T12:56:47.375433+00:00",
   "frozen_through": "06.28",
   "param_version": "p1",
   "train_definition": {
@@ -49,7 +49,7 @@
     "tail_frac": 0.25,
     "chemical_only": true,
     "result": {
-      "title": "Train (<= 06.28, S1)",
+      "title": "Train (<= 06.28; Part 1 + S1)",
       "n": 164,
       "n_state_dropped": 34,
       "classes": 11,

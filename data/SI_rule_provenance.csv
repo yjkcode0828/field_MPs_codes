@@ -8,4 +8,4 @@ carbonyl index (modified windows 1690-1760 / 1420-1490),Almond2020
 SAN = nitrile 2237 + aromatic bands,Coates2000 ; Jung2018
 PVC multi-band combination (CCl + 1250 + 1426/1330),Beltran1997 ; Jung2018
 calcite / aragonite polymorph (855),Vagenas2003
-thresholds REL_PRESENT / REL_STRONG / SIO_DOMINATES / CI_WEATHERED,"(data-tuned values, not from literature)"
+thresholds REL_PRESENT / REL_STRONG / SIO_DOMINATES / CI_WEATHERED,"(declared in advance: literature, bracketed by the standards, or design choice; graded in THRESHOLD_PROVENANCE; none fitted to the field spectra)"
