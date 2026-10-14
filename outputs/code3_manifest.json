@@ -1,0 +1,60 @@
+{
+  "code3_version": "v1.0",
+  "upstream": {
+    "code1": "v1.0",
+    "code2": "v1.0 / p1"
+  },
+  "n_catalogue": 228,
+  "n_raman": 47,
+  "n_scored": 33,
+  "streams_active": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "join_key": "file",
+  "thresholds": {
+    "openspecy": 0.7,
+    "classifier": 0.3
+  },
+  "reporting_values": {
+    "n_streams": 7,
+    "n_compared": 6,
+    "n_particles": 47,
+    "n_scored": 33,
+    "n_withheld": 14,
+    "Q": "28.4",
+    "Q_df": 5,
+    "Q_p": "< 0.0001",
+    "outlier": "OS_cor",
+    "out_lo": "0.10",
+    "out_hi": "0.33",
+    "others_lo": "0.47",
+    "others_hi": "0.82",
+    "simple_refs": 322,
+    "simple_names": 219,
+    "simple_dropped": 3,
+    "gran_entry_labels": 11,
+    "gran_class_labels": 5,
+    "gran_entry_comp": "0.46",
+    "gran_class_comp": "0.67",
+    "gran_class_lo": "0.24",
+    "gran_class_hi": "0.44"
+  },
+  "frozen_decisions": {
+    "CLASS_MAP_extension": {
+      "decision": "DO NOT EXTEND",
+      "scope": "SLoPP/SLoPP-E nitrile references: polyacrylonitrile 13 + ABS family 11",
+      "reason": "The corresponding class carries a single diagnostic key band (2240 cm-1). The ranking rule needs at least two key bands even for a tentative call, so the class can never leave \"unresolved\" and the evidence floor withholds it in every case. Mapping would extend stream 2 vocabulary without changing the band-library output."
+    },
+    "name_to_class_mapping": {
+      "decision": "NOT USED",
+      "scope": "translation of tool names onto a common chemical vocabulary",
+      "reason": "A mapping table is an author assumption and it shrinks the divergence being measured. Group-structure measures (purity, completeness, ARI) need no shared vocabulary.",
+      "note": "Stream 2 returns band-library classes because its reference spectra were assigned to them before matching (Code 1 CLASS_MAP, Section 12-4); no stream output is translated after matching."
+    }
+  }
+}
