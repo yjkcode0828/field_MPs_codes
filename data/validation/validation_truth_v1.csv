@@ -1,0 +1,40 @@
+material_raw,n_SLoPP,n_SLoPP_E,truth_class,scope,related_classes,note
+PVC,0,3,PVC,in,,
+Polyvinylchloride,11,0,PVC,in,,
+Polyacrylonitrile,10,3,acrylonitrile_copolymer,in,,one key band (2240): withheld by design; reported apart
+Nylon,0,6,nylon_PA,in,,
+Polyamide,7,0,nylon_PA,in,,
+Polyamide Resin,0,1,nylon_PA,in,,absent from §12-4 CLASS_MAP; CLASS_MAP left unchanged
+PET,0,1,polyester_PET,in,,
+Polyester,10,12,polyester_PET,in,,polyester fibre conventionally denotes PET
+Polyethylene Terephthalate,9,0,polyester_PET,in,,
+Oxidized PE,0,1,polyolefin_PE,in,,oxidised PE is still PE
+PE,0,25,polyolefin_PE,in,,
+Polyethylene,24,0,polyolefin_PE,in,,
+PP,0,21,polyolefin_PP,in,,
+Polypropylene,17,0,polyolefin_PP,in,,
+PS,0,9,polystyrene,in,,
+Polystyrene,10,0,polystyrene,in,,
+Polystyrene ,1,0,polystyrene,in,,
+PC,0,2,,out,,
+PMMA,0,3,,out,,
+PU,0,6,,out,,
+Polycarbonate,7,0,,out,,
+Polymethyl methacrylate,1,0,,out,,same material as PMMA
+Polysulfone,0,1,,out,,aromatic sulfone; no library class in the repeating unit
+Polyurethane,6,0,,out,,
+Tall Oil Rosin,0,1,,out,,"natural resin acids, not a polysaccharide"
+ABS,0,1,,related,polystyrene;acrylonitrile_copolymer,styrene and nitrile units
+Acrylonitrile butadiene styrene ,10,0,,related,polystyrene;acrylonitrile_copolymer,styrene and nitrile units
+Cellulose,0,4,,related,natural_organic,natural_organic is starch-defined; cellulose is not starch
+Cellulose Acetate,4,0,,related,natural_organic,cellulose derivative
+Cellulose acetate,0,3,,related,natural_organic,cellulose derivative
+Cotton,16,0,,related,natural_organic,cellulose fibre
+Modal,0,1,,related,natural_organic,regenerated cellulose
+PBT,0,1,,related,polyester_PET,terephthalate polyester other than PET
+PE-co-PP,0,3,,related,polyolefin_PE;polyolefin_PP,copolymer of both polyolefins
+PET:PC copolymer,0,1,,related,polyester_PET,terephthalate and carbonate units
+PS-PVC,0,1,,related,polystyrene;PVC,blend
+Polyethylene-vinyl acetate,5,0,,related,polyolefin_PE,ethylene main chain
+Styrene/isoprene,0,1,,related,polystyrene;natural_isoprene,styrene and isoprene units
+Styrene/isoprene copolymer,0,2,,related,polystyrene;natural_isoprene,styrene and isoprene units

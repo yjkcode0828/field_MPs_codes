@@ -1,0 +1,86 @@
+{
+  "decision_chain": "§5 qc_flags -> §6 preprocess_for_view (full range) -> §7 pick_peaks -> §8 band_evidence with acquisition range rounded to 0.1 cm-1 -> §15 tier (k1, k2, _verdict) -> §16 floor (fluorescence corr read from the qc string). Must reproduce all 47 field reference rows before any corpus spectrum is decided.",
+  "diagnostic_wavenumber_offset": {
+    "report": "median, IQR and fraction with |offset| > MATCH_TOL, per library and class",
+    "use": "descriptive only; never used to correct an axis or change a decision",
+    "what": "for each in-scope spectrum and each key band of its TRUE class, the nearest detected peak within +/-15 cm-1; offset = measured - library"
+  },
+  "frozen_rule": {
+    "ALS_LAM": 10000.0,
+    "ALS_NITER": 10,
+    "ALS_P": 0.01,
+    "ANALYSIS_MAX": 3600.0,
+    "ANALYSIS_MIN": 140.0,
+    "DESPIKE_K": 6.0,
+    "DESPIKE_WIN": 5,
+    "GAP_MIN": 4,
+    "K_MIN": 3,
+    "MATCH_TOL": 8.0,
+    "PEAK_PROM_K": 4.0,
+    "SG_POLY": 3,
+    "SG_WIN": 9,
+    "band_library": "v1.0",
+    "floor": {
+      "fluorescence_corr": 0.98,
+      "fluorescence_k1_max": 2,
+      "margin_min": 1
+    },
+    "max_peaks": 25,
+    "not_applied": [
+      "fingerprint_count (FINGERPRINT_MIN_PEAKS)",
+      "qc_is_reject"
+    ],
+    "peak_distance_points": 3
+  },
+  "groups": "SLoPP and SLoPP-E reported separately, never pooled",
+  "metrics": {
+    "interval": "Wilson 95%",
+    "min_n_for_rate": 5,
+    "per_emitted_class": [
+      "PPV",
+      "false_positive_rate"
+    ],
+    "per_truth_class": [
+      "true_positive_rate",
+      "inconclusive_rate",
+      "misclassification_rate"
+    ],
+    "primary_label_set": "emitted labels (confident + tentative that pass the floor), as used for the field reference",
+    "related": "excluded from numerator and denominator of the primary metrics; a strict PPV counting related emissions as wrong is reported alongside",
+    "subset": "confident tier only, same metrics"
+  },
+  "not_done": [
+    "stream 2 (SLoPP correlation) and support levels are not computed on the corpus (circular)",
+    "no parameter of the rule is tuned on the corpus"
+  ],
+  "outcomes": {
+    "in": "correct (emitted == truth) / wrong (other class emitted) / inconclusive (withheld)",
+    "out": "correct_rejection (withheld) / false_positive (any class emitted)",
+    "related": "related (emitted in related_classes) / wrong / inconclusive; counts only",
+    "structurally_undecidable": "truth class with < 2 key bands (acrylonitrile_copolymer, natural_isoprene): reported apart, withheld is the only correct outcome"
+  },
+  "primary_analysis": {
+    "axis": "corpus resampled to the field spacing 3.104 cm-1 (resample_uniform)",
+    "reason": "the point-based parameters of §6 and §7 (despike 5, SG 9, ALS lambda, peak distance 3, noise from point differences) were set on spectra at this spacing",
+    "spectra": "all excitation wavelengths"
+  },
+  "protocol_version": "v1",
+  "purpose": "Class-level performance of the frozen band rule on spectra of depositor-labelled identity (SLoPP, SLoPP-E). The rule is not changed for this analysis.",
+  "sensitivity_analyses": [
+    {
+      "change": "no resampling; corpus at its own spacing",
+      "name": "as_distributed"
+    },
+    {
+      "change": "primary, restricted to laser_nm within 532 +/- 5 nm",
+      "name": "excitation_532"
+    }
+  ],
+  "truth_table": {
+    "file": "validation_truth_v1.csv",
+    "rule": "in / related / out as stated in §17-0a",
+    "sha256": "3668303a80536303e6a4038eb3b1308245f83ab9f140126b595e258a487147bf"
+  },
+  "unit": "spectrum",
+  "written_at": "2026-10-06T07:17:17"
+}
