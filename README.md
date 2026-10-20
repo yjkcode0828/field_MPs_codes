@@ -3,9 +3,9 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22145774.svg)](https://doi.org/10.5281/zenodo.22145774)
 
 Companion code and data products for
-Kim, Y. (2026). *A permutation-calibrated Raman band rule for auditing six spectral identification systems on field-weathered microplastics*. Manuscript in preparation.
+Kim, Y. (2026). *A permutation-calibrated Raman band rule for auditing six spectral identification systems on field-weathered microplastics*. Submitted for publication.
 
-**Archived version:** release `v1.1.0-manuscript` (re-executed end to end on 13 October 2026) · Zenodo DOI **10.5281/zenodo.22145774** (this concept DOI resolves to the latest archived version; the manuscript cites the version DOI of `v1.1.0-manuscript`).
+**Archived version:** release `v1.1.0-manuscript` (re-executed end to end on 13 October 2026; published 20 October 2026) · Zenodo DOI **10.5281/zenodo.22145774** (concept DOI, cited in the manuscript; it resolves to the latest archived version, currently `v1.1.0-manuscript`).
 The three notebooks are archived **as executed**: every cell retains the output of the final end-to-end run, so the numbers in the article can be checked against cell outputs without re-running anything.
 
 **Relation to `v1.0.1-manuscript` (29 August 2026).** The decision logic is unchanged. The Code 1 hand-off read by Code 2 (`outputs/ground_truth_for_code2.csv`) is byte-identical to the first release (SHA-256 checked in Code 1 §17-6). `v1.1.0-manuscript` differs only in output wording, annotations, figure numbering aligned with the manuscript, the cache-settings record in Code 1 §12-4 and the supplementary analysis Code 3 E.3 (see *Changes* below).
@@ -118,12 +118,12 @@ The archived notebooks already contain their outputs; re-execution is optional. 
 
 ## Changes
 
-- **v1.1.0-manuscript (2026-10-14).** All three notebooks re-executed end to end on 13 October 2026. No change to any decision rule, threshold or vocabulary; the Code 1 hand-off is byte-identical to v1.0.1 (Code 1 §17-6). Code 1 §12-4 now records the settings under which the SLoPP corpus cache was built and 0-Z carries that record back to the project folder. Code 3 gained section E.3 (PE/PP completeness restricted to particles on which both Raman methods agree) and writes its supplementary tables to `outputs/`. Output wording, figure file names and section references were aligned with the manuscript; `data/validation/` added.
-- **v1.0.1-manuscript (2026-08-29).** First archived release.
+- **v1.1.0-manuscript (2026-10-20).** All three notebooks re-executed end to end on 13 October 2026. No change to any decision rule, threshold or vocabulary; the Code 1 hand-off is byte-identical to v1.0.1 (Code 1 §17-6). Code 1 §12-4 now records the settings under which the SLoPP corpus cache was built and 0-Z carries that record back to the project folder. Code 3 gained section E.3 (PE/PP completeness restricted to particles on which both Raman methods agree) and writes its supplementary tables to `outputs/`. Output wording, figure file names and section references were aligned with the manuscript; `data/validation/` added.
+- **v1.0.1-manuscript (2026-08-29; GitHub tag `v1.0-manuscript`).** First archived release.
 
 ## How to cite
 
-The associated article is currently under review. Until it is published, please cite this archive by its Zenodo record; the article reference below will be completed with the journal citation and DOI on acceptance.
+The associated article is currently submitted for publication. Until it is published, please cite this archive by its Zenodo record; the article reference below will be completed with the journal citation and DOI on acceptance.
 
 **This archive (software and data products)**
 
@@ -131,13 +131,9 @@ The associated article is currently under review. Until it is published, please 
 
 **The associated article**
 
-> Kim, Y. (2026). [A permutation-calibrated Raman band rule for auditing six spectral identification systems on field-weathered microplastics]. Submitted for publication.
+> Kim, Y. (2026). _A permutation-calibrated Raman band rule for auditing six spectral identification systems on field-weathered microplastics_. Submitted for publication.
 
 The licence (CC BY-NC 4.0) makes attribution a condition of use; once the article is published, please cite both the article and this archive. `CITATION.cff` is provided and GitHub renders it under "Cite this repository".
-
-*For reviewers.* The archive is self-contained: every notebook is stored with the outputs of the end-to-end run from which the manuscript's values derive, so each reported value can be checked against a cell output without re-running anything (see *Where the article's figures and tables come from* above). No raw field spectra are needed for that check. The concept DOI above always resolves to the latest archived version; the version reviewed is `v1.1.0-manuscript`.
-
-`CITATION.cff` is provided; GitHub renders it under "Cite this repository".
 
 ## Licence
 
