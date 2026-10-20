@@ -9,7 +9,7 @@ title: >-
   Code 1-3: reproducible diagnostic-band identification of field
   microplastics and naming divergence across six spectral-library streams
 version: v1.1.0-manuscript
-date-released: "2026-10-14"
+date-released: "2026-10-20"
 doi: 10.5281/zenodo.22145774
 repository-code: "https://github.com/yjkcode0828/field_MPs_codes"
 license: CC-BY-NC-4.0
@@ -26,10 +26,10 @@ keywords:
   - reproducibility
 preferred-citation:
   type: article
-  title: "[Article title]"
+  title: "[A permutation-calibrated Raman band rule for auditing six spectral identification systems on field-weathered microplastics]"
   authors:
     - family-names: "Kim"
       given-names: "Youjin"
       orcid: "https://orcid.org/0009-0000-0030-3560"
-  journal: "[Journal]"
+  journal: "[Submitted for Publication]"
   year: 2026
