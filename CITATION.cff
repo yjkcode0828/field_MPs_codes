@@ -1,15 +1,24 @@
 cff-version: 1.2.0
 message: >-
   If you use these notebooks or the accompanying data products, please cite
-  both the software archive (this record) and the associated article
-  (preferred-citation). The CC BY-NC 4.0 licence makes attribution a
-  condition of use.
+  this software archive. Once the associated article is published, please
+  cite both the archive and the article. The CC BY-NC 4.0 licence makes
+  attribution a condition of use.
 type: software
 title: >-
-  Code 1-3 for "A library-independent Raman band rule calibrated by permutation for comparing Raman and FTIR identification of field microplastics"
+  Code 1-3 for "A library-independent Raman band rule calibrated by
+  permutation for comparing Raman and FTIR identification of field
+  microplastics"
 version: v1.2.0-manuscript
 date-released: "2026-10-21"
-doi: 10.5281/zenodo.22145774
+doi: 10.5281/zenodo.23529343
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23529343
+    description: "Version v1.2.0-manuscript"
+  - type: doi
+    value: 10.5281/zenodo.22145774
+    description: "Concept DOI (all versions; resolves to the latest version)"
 repository-code: "https://github.com/yjkcode0828/field_MPs_codes"
 license: CC-BY-NC-4.0
 authors:
@@ -20,15 +29,17 @@ keywords:
   - microplastics
   - Raman spectroscopy
   - FT-IR spectroscopy
-  - spectral library
-  - naming divergence
+  - spectral identification
+  - method comparison
   - reproducibility
-preferred-citation:
-  type: article
-  title: "A library-independent Raman band rule calibrated by permutation for comparing Raman and FTIR identification of field microplastics"
-  authors:
-    - family-names: "Kim"
-      given-names: "Youjin"
-      orcid: "https://orcid.org/0009-0000-0030-3560"
-  notes: "Submitted for publication"
-  year: 2026
+references:
+  - type: article
+    title: >-
+      A library-independent Raman band rule calibrated by permutation for
+      comparing Raman and FTIR identification of field microplastics
+    authors:
+      - family-names: "Kim"
+        given-names: "Youjin"
+        orcid: "https://orcid.org/0009-0000-0030-3560"
+    year: 2026
+    notes: "Submitted for publication"
