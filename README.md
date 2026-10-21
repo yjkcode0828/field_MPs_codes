@@ -5,10 +5,10 @@
 Companion code and data products for
 Kim, Y. (2026). *A permutation-calibrated Raman band rule for auditing six spectral identification systems on field-weathered microplastics*. Submitted for publication.
 
-**Archived version:** release `v1.1.0-manuscript` (re-executed end to end on 13 October 2026; published 20 October 2026) · Zenodo DOI **10.5281/zenodo.22145774** (concept DOI, cited in the manuscript; it resolves to the latest archived version, currently `v1.1.0-manuscript`).
+**Archived version:** release `v1.2.0-manuscript` (notebooks re-executed end to end on 13 October 2026; raw spectra of the comparison set added 21 October 2026) · Zenodo DOI **10.5281/zenodo.22145774** (concept DOI, cited in the manuscript; it resolves to the latest archived version, currently `v1.2.0-manuscript`).
 The three notebooks are archived **as executed**: every cell retains the output of the final end-to-end run, so the numbers in the article can be checked against cell outputs without re-running anything.
 
-**Relation to `v1.0.1-manuscript` (29 August 2026).** The decision logic is unchanged. The Code 1 hand-off read by Code 2 (`outputs/ground_truth_for_code2.csv`) is byte-identical to the first release (SHA-256 checked in Code 1 §17-6). `v1.1.0-manuscript` differs only in output wording, annotations, figure numbering aligned with the manuscript, the cache-settings record in Code 1 §12-4 and the supplementary analysis Code 3 E.3 (see *Changes* below).
+**Relation to `v1.0.1-manuscript` (29 August 2026).** The decision logic is unchanged. The Code 1 hand-off read by Code 2 (`outputs/ground_truth_for_code2.csv`) is byte-identical to the first release (SHA-256 checked in Code 1 §17-6). `v1.1.0-manuscript` differs only in output wording, annotations, figure numbering aligned with the manuscript, the cache-settings record in Code 1 §12-4 and the supplementary analysis Code 3 E.3; `v1.2.0-manuscript` adds the raw spectra of the comparison set under `data/raw/` and changes nothing else (see *Changes* below).
 
 **Licence.** CC BY-NC 4.0: free to download, study and reuse for research and other non-commercial purposes, with citation of the article and this archive (see `LICENSE` and `CITATION.cff`). Commercial use requires permission from the corresponding author.
 
@@ -22,7 +22,7 @@ Three notebooks with strictly one-way data flow. No label, score or flag produce
 | `Code2_spec_class_omnic.ipynb` | framework v1.0, parameter set p1 | Code 1 hand-off, field FT-IR spectra*, OMNIC hit names | `code3_input_catalogue_v01.csv`, `params_snapshot_p1.json`, `SI_band_provenance.csv`, `SI_rule_provenance.csv` |
 | `Code3_naming_divergence.ipynb` | v1.0 | Code 2 catalogue, Open Specy + siMPle libraries (external) | `code3_master_n47.csv`, `SI_stream_dictionary.csv`, `SI_*.csv` supplementary tables, `code3_manifest.json`, all comparisons and figures |
 
-\* Raw spectra are not in this repository (see `NOTICE.md`); the archived outputs make every downstream step checkable without them.
+\* Raw spectra of the 47 comparison particles and of the standards are in `data/raw/`; the remaining 181 FT-IR spectra of the 228-particle catalogue are retained for follow-up studies (see `NOTICE.md`). The archived outputs make every downstream step checkable without them.
 
 ## Repository layout
 
@@ -47,6 +47,12 @@ data/
     validation_confusion_SLoPP-E.csv #   §17-4: confusion matrix, SLoPP-E (Fig. 2b)
     validation_offset_diagnostic.csv #   §17-4: key-band offsets from the nearest peak
     validation_manifest.json         #   §17-6: fingerprints of the validation outputs
+  raw/                               # raw spectra of the comparison set and the standards (see data/raw/README.md)
+    raman_47/                        #   47 Raman spectra (.txt, instrument export)
+    ftir_47/                         #   47 ATR-FTIR spectra of the same particles (.CSV, OMNIC export)
+    standards_raman/                 #   Si, polystyrene (ASTM E1840, two sessions), LDPE and iPP pellets (.txt)
+    standards_ftir/                  #   LDPE and iPP pellets (.CSV)
+    raw_manifest.csv                 #   file list with size and SHA-256
 outputs/
   ground_truth_for_code2.csv         # Code 1 -> Code 2 (the Raman Code 1 Reference)
   sens_C_delta.csv                   # Code 1 -> Code 2 (wavenumber-offset sensitivity)
@@ -75,7 +81,7 @@ LICENSE · CITATION.cff · NOTICE.md · README.md · .zenodo.json
 | Stream dictionary | `outputs/SI_stream_dictionary.csv` |
 | Preprocessed Raman spectra of the 47 comparison particles, with diagnostic-band evidence | worksheet output of Code 1, section 11 (in the notebook) |
 | Particle photographs | ESI of the article (not in this repository) |
-| Raw FT-IR and Raman spectra | corresponding author, on reasonable request |
+| Raw FT-IR and Raman spectra | `data/raw/` (47 comparison particles and the standards); the remaining 181 FT-IR spectra on reasonable request |
 
 Sensitivity grids, null-model tables, per-band performance tables and the validation on spectra of known identity are in the cell outputs of Code 1 sections 12-17 and Code 2 sections 0.5-0.10; the ESI of the article reproduces the subset it cites.
 
@@ -114,10 +120,11 @@ Two analysis layers: reference-free (N = 47) and reference-anchored (N = 33; 14 
 
 ## Re-running
 
-The archived notebooks already contain their outputs; re-execution is optional. The raw field spectra (not distributed) are required only for Code 1 sections 3-11 and Code 2 section 0.3; everything downstream of the committed hand-off files can be re-run. Code 3 needs only `outputs/code3_input_catalogue_v01.csv`, `data/params_snapshot_p1.json` and the external libraries listed in `NOTICE.md`. Environment: Google Colab, Python 3.13 (NumPy 2.1, SciPy 1.16, pandas 2.2, Matplotlib 3.10; exact versions in `data/environment.json`) and, for Code 3, R 4.6 with `OpenSpecy` 1.5.3 via `rpy2`.
+The archived notebooks already contain their outputs; re-execution is optional. `data/raw/` holds the Raman and FT-IR spectra of the 47 comparison particles and of the standards (placement of the folders is described in `data/raw/README.md`). With these files Code 1 re-runs end to end (the hand-off must reproduce the SHA-256 checked in §17-6), Code 3 re-runs end to end from the archived catalogue (`outputs/code3_input_catalogue_v01.csv`) and the external libraries listed in `NOTICE.md`, and Code 2 re-runs its standard verification (0.5) and the comparison against the Code 1 reference (Part 4). Code 2 Parts 1-3 and the threshold sweeps of 0.6-0.10 use the full 228-spectrum catalogue, of which the remaining 181 FT-IR spectra are retained for follow-up studies; those sections are documented by their preserved outputs. Environment: Google Colab, Python 3.13 (NumPy 2.1, SciPy 1.16, pandas 2.2, Matplotlib 3.10; exact versions in `data/environment.json`) and, for Code 3, R 4.6 with `OpenSpecy` 1.5.3 via `rpy2`.
 
 ## Changes
 
+- **v1.2.0-manuscript (2026-10-21).** Adds `data/raw/`: raw Raman and ATR-FTIR spectra of the 47 comparison particles and of the standards, with a file manifest (size and SHA-256). Notebooks, data products and decision logic are unchanged from v1.1.0-manuscript.
 - **v1.1.0-manuscript (2026-10-20).** All three notebooks re-executed end to end on 13 October 2026. No change to any decision rule, threshold or vocabulary; the Code 1 hand-off is byte-identical to v1.0.1 (Code 1 §17-6). Code 1 §12-4 now records the settings under which the SLoPP corpus cache was built and 0-Z carries that record back to the project folder. Code 3 gained section E.3 (PE/PP completeness restricted to particles on which both Raman methods agree) and writes its supplementary tables to `outputs/`. Output wording, figure file names and section references were aligned with the manuscript; `data/validation/` added.
 - **v1.0.1-manuscript (2026-08-29; GitHub tag `v1.0-manuscript`).** First archived release.
 
@@ -127,7 +134,7 @@ The associated article is currently submitted for publication. Until it is publi
 
 **This archive (software and data products)**
 
-> Kim, Y. (2026). Code 1-3: reproducible diagnostic-band identification of field microplastics and naming divergence across six spectral-library streams (v1.1.0-manuscript) [Software]. Zenodo. https://doi.org/10.5281/zenodo.22145774
+> Kim, Y. (2026). Code 1-3: reproducible diagnostic-band identification of field microplastics and naming divergence across six spectral-library streams (v1.2.0-manuscript) [Software]. Zenodo. https://doi.org/10.5281/zenodo.22145774
 
 **The associated article**
 
