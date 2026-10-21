@@ -1,9 +1,9 @@
-# field_MPs_codes: Code 1-3 for "A permutation-calibrated Raman band rule for auditing six spectral identification systems on field-weathered microplastics"
+# field_MPs_codes: Code 1-3 for "A library-independent Raman band rule calibrated by permutation for comparing Raman and FTIR identification of field microplastics"
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22145774.svg)](https://doi.org/10.5281/zenodo.22145774)
 
 Companion code and data products for
-Kim, Y. (2026). *A permutation-calibrated Raman band rule for auditing six spectral identification systems on field-weathered microplastics*. Submitted for publication.
+Kim, Y. (2026). *A library-independent Raman band rule calibrated by permutation for comparing Raman and FTIR identification of field microplastics*. Submitted for publication.
 
 **Archived version:** release `v1.2.0-manuscript` (notebooks re-executed end to end on 13 October 2026; raw spectra of the comparison set added 21 October 2026) · Zenodo DOI **10.5281/zenodo.22145774** (concept DOI, cited in the manuscript; it resolves to the latest archived version, currently `v1.2.0-manuscript`).
 The three notebooks are archived **as executed**: every cell retains the output of the final end-to-end run, so the numbers in the article can be checked against cell outputs without re-running anything.
@@ -138,7 +138,7 @@ The associated article is currently submitted for publication. Until it is publi
 
 **The associated article**
 
-> Kim, Y. (2026). _A permutation-calibrated Raman band rule for auditing six spectral identification systems on field-weathered microplastics_. Submitted for publication.
+> Kim, Y. (2026). _A library-independent Raman band rule calibrated by permutation for comparing Raman and FTIR identification of field microplastics_. Submitted for publication.
 
 The licence (CC BY-NC 4.0) makes attribution a condition of use; once the article is published, please cite both the article and this archive. `CITATION.cff` is provided and GitHub renders it under "Cite this repository".
 
