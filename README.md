@@ -130,11 +130,13 @@ The archived notebooks already contain their outputs; re-execution is optional. 
 
 ## How to cite
 
-The associated article is currently submitted for publication. Until it is published, please cite this archive by its Zenodo record; the article reference below will be completed with the journal citation and DOI on acceptance.
+The associated article has been submitted for publication. Until it is published, please cite this archive by its Zenodo record; the article reference below will be completed with the journal citation and DOI on acceptance.
 
 **This archive (software and data products)**
 
-> Kim, Y. (2026). Code 1-3: reproducible diagnostic-band identification of field microplastics and naming divergence across six spectral-library streams (v1.2.0-manuscript) [Software]. Zenodo. https://doi.org/10.5281/zenodo.22145774
+> Kim, Y. (2026). Code 1-3 for 'A library-independent Raman band rule calibrated by permutation for comparing Raman and FTIR identification of field microplastics' (v1.2.0-manuscript) [Software]. Zenodo. https://doi.org/10.5281/zenodo.23529343
+
+All versions: https://doi.org/10.5281/zenodo.22145774 (concept DOI, resolves to the latest version).
 
 **The associated article**
 
