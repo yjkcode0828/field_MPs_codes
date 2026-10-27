@@ -1,11 +1,11 @@
-# field_MPs_codes: Code 1-3 for "A library-independent Raman band rule calibrated by permutation for comparing Raman and FTIR identification of field microplastics"
+# field_MPs_codes: Code 1-3 for "A permutation-calibrated Raman band rule for auditing spectroscopic identification of field-weathered microplastics"
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22145774.svg)](https://doi.org/10.5281/zenodo.22145774)
 
 Companion code and data products for
-Kim, Y. (2026). *A library-independent Raman band rule calibrated by permutation for comparing Raman and FTIR identification of field microplastics*. Submitted for publication.
+Kim, Y. (2026). *A permutation-calibrated Raman band rule for auditing spectroscopic identification of field-weathered microplastics*. Submitted for publication.
 
-**Archived version:** release `v1.2.0-manuscript` (notebooks re-executed end to end on 13 October 2026; raw spectra of the comparison set added 21 October 2026) · Zenodo DOI **10.5281/zenodo.22145774** (concept DOI, cited in the manuscript; it resolves to the latest archived version, currently `v1.2.0-manuscript`).
+**Archived version:** release `v1.2.1-manuscript` (notebooks re-executed end to end on 13 October 2026; raw spectra of the comparison set added 21 October 2026; documentation aligned with the submitted manuscript on 27 October 2026) · Zenodo DOI **10.5281/zenodo.22145774** (concept DOI, cited in the manuscript; it resolves to the latest archived version, currently `v1.2.1-manuscript`).
 The three notebooks are archived **as executed**: every cell retains the output of the final end-to-end run, so the numbers in the article can be checked against cell outputs without re-running anything.
 
 **Relation to `v1.0.1-manuscript` (29 August 2026).** The decision logic is unchanged. The Code 1 hand-off read by Code 2 (`outputs/ground_truth_for_code2.csv`) is byte-identical to the first release (SHA-256 checked in Code 1 §17-6). `v1.1.0-manuscript` differs only in output wording, annotations, figure numbering aligned with the manuscript, the cache-settings record in Code 1 §12-4 and the supplementary analysis Code 3 E.3; `v1.2.0-manuscript` adds the raw spectra of the comparison set under `data/raw/` and changes nothing else (see *Changes* below).
@@ -42,7 +42,7 @@ data/
     validation_truth_v1.csv          #   scope of every depositor name, fingerprinted before any decision (§17-0a)
     validation_protocol_v1.json      #   every analysis choice, fingerprinted before any decision (§17-0b)
     validation_equivalence_field47.csv  # §17-2: the frozen rule reproduces all 47 field assignments
-    validation_metrics.csv           #   §17-4: precision, coverage, false-positive rate (Table 3b)
+    validation_metrics.csv           #   §17-4: precision, coverage, false-positive rate (Table 2b)
     validation_confusion_SLoPP.csv   #   §17-4: confusion matrix, SLoPP (Fig. 2a)
     validation_confusion_SLoPP-E.csv #   §17-4: confusion matrix, SLoPP-E (Fig. 2b)
     validation_offset_diagnostic.csv #   §17-4: key-band offsets from the nearest peak
@@ -58,7 +58,7 @@ outputs/
   sens_C_delta.csv                   # Code 1 -> Code 2 (wavenumber-offset sensitivity)
   code3_input_catalogue_v01.csv      # Code 2 -> Code 3 (particle x stream catalogue)
   code3_master_n47.csv               # Code 3 master table (verbatim labels of all 47 particles)
-  SI_stream_dictionary.csv           # table label <-> CSV column bridge (ESI)
+  SI_stream_dictionary.csv           # table label <-> CSV column bridge (Supplemental Material)
   SI_pairwise_mcnemar_bh.csv         # Code 3 E.1: pairwise McNemar tests, Benjamini-Hochberg corrected
   SI_ari_by_stratum.csv              # Code 3 E.1: adjusted Rand index by stratum (emitted / withheld)
   SI_granularity_stream5.csv         # Code 3 E.2: stream 5 at entry level vs class level
@@ -80,10 +80,10 @@ LICENSE · CITATION.cff · NOTICE.md · README.md · .zenodo.json
 | Full catalogue of verbatim labels | `outputs/code3_master_n47.csv` |
 | Stream dictionary | `outputs/SI_stream_dictionary.csv` |
 | Preprocessed Raman spectra of the 47 comparison particles, with diagnostic-band evidence | worksheet output of Code 1, section 11 (in the notebook) |
-| Particle photographs | ESI of the article (not in this repository) |
+| Particle photographs | Supplemental Material of the article (not in this repository) |
 | Raw FT-IR and Raman spectra | `data/raw/` (47 comparison particles and the standards); the remaining 181 FT-IR spectra on reasonable request |
 
-Sensitivity grids, null-model tables, per-band performance tables and the validation on spectra of known identity are in the cell outputs of Code 1 sections 12-17 and Code 2 sections 0.5-0.10; the ESI of the article reproduces the subset it cites.
+Sensitivity grids, null-model tables, per-band performance tables and the validation on spectra of known identity are in the cell outputs of Code 1 sections 12-17 and Code 2 sections 0.5-0.10; the Supplemental Material of the article reproduces the subset it cites.
 
 ## Where the article's figures and tables come from
 
@@ -96,13 +96,12 @@ Sensitivity grids, null-model tables, per-band performance tables and the valida
 | Fig. 6 | Code 3 F1a (`Fig6_completeness_ci_pepp`) |
 | Fig. 7 | Code 3 F1c (`Fig7_score_vs_agreement`) |
 | Fig. S5 | Code 1 §12-2 and §12-3 (`null_A1_*.png`) |
-| Table 2 | Code 1 §16 |
-| Table 3a | Code 1 §13, §14, §12, §12-2, §12-3 |
-| Table 3b | Code 1 §17-4 and §17-6 |
-| Table 4 | Code 3 D.1 |
-| Table 5 | Code 3 C1 (rows of `code3_master_n47.csv`) |
+| Table 2a | Code 1 §13, §14, §12, §12-2, §12-3 |
+| Table 2b | Code 1 §17-4 and §17-6 |
+| Table 3 | Code 3 D.1 |
+| Table 4 | Code 3 C1 (rows of `code3_master_n47.csv`) |
 
-Fig. 4 (FT-IR spectra of the Table 5 particles) was drawn from the archived spectra with the band windows of Code 2 §0.2 and is not produced by the three notebooks.
+Fig. 4 (FT-IR spectra of the Table 4 particles) was drawn from the archived spectra with the band windows of Code 2 §0.2 and is not produced by the three notebooks. The per-particle reference table that earlier drafts printed from Code 1 §16 is not part of the submitted article; its content remains in the notebook output and in `outputs/code3_master_n47.csv`.
 
 ## Labelling streams (as in the article tables)
 
@@ -124,6 +123,7 @@ The archived notebooks already contain their outputs; re-execution is optional. 
 
 ## Changes
 
+- **v1.2.1-manuscript (2026-10-27).** Documentation-only release for submission to a different journal: article title updated throughout; table numbering aligned with the submitted manuscript (former Tables 3a, 3b, 4 and 5 are now Tables 2a, 2b, 3 and 4; the draft table formerly printed from Code 1 §16 is no longer part of the article); "ESI" renamed "Supplemental Material" in the documentation (READMEs, NOTICE and notebook markdown; two occurrences inside executed code cells and in the data product they wrote, outputs/SI_stream_dictionary.csv, are left exactly as executed). Notebook code, cell outputs, data products and decision logic are unchanged from v1.2.0-manuscript.
 - **v1.2.0-manuscript (2026-10-21).** Adds `data/raw/`: raw Raman and ATR-FTIR spectra of the 47 comparison particles and of the standards, with a file manifest (size and SHA-256). Notebooks, data products and decision logic are unchanged from v1.1.0-manuscript.
 - **v1.1.0-manuscript (2026-10-20).** All three notebooks re-executed end to end on 13 October 2026. No change to any decision rule, threshold or vocabulary; the Code 1 hand-off is byte-identical to v1.0.1 (Code 1 §17-6). Code 1 §12-4 now records the settings under which the SLoPP corpus cache was built and 0-Z carries that record back to the project folder. Code 3 gained section E.3 (PE/PP completeness restricted to particles on which both Raman methods agree) and writes its supplementary tables to `outputs/`. Output wording, figure file names and section references were aligned with the manuscript; `data/validation/` added.
 - **v1.0.1-manuscript (2026-08-29; GitHub tag `v1.0-manuscript`).** First archived release.
@@ -134,13 +134,13 @@ The associated article has been submitted for publication. Until it is published
 
 **This archive (software and data products)**
 
-> Kim, Y. (2026). Code 1-3 for 'A library-independent Raman band rule calibrated by permutation for comparing Raman and FTIR identification of field microplastics' (v1.2.0-manuscript) [Software]. Zenodo. https://doi.org/10.5281/zenodo.23529343
+> Kim, Y. (2026). Code 1-3 for 'A permutation-calibrated Raman band rule for auditing spectroscopic identification of field-weathered microplastics' (v1.2.1-manuscript) [Software]. Zenodo. https://doi.org/10.5281/zenodo.22145774
 
 All versions: https://doi.org/10.5281/zenodo.22145774 (concept DOI, resolves to the latest version).
 
 **The associated article**
 
-> Kim, Y. (2026). _A library-independent Raman band rule calibrated by permutation for comparing Raman and FTIR identification of field microplastics_. Submitted for publication.
+> Kim, Y. (2026). _A permutation-calibrated Raman band rule for auditing spectroscopic identification of field-weathered microplastics_. Submitted for publication.
 
 The licence (CC BY-NC 4.0) makes attribution a condition of use; once the article is published, please cite both the article and this archive. `CITATION.cff` is provided and GitHub renders it under "Cite this repository".
 
