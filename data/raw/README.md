@@ -4,9 +4,9 @@ Spectra as written by the instruments, unmodified. Licence: CC BY-NC 4.0 (see `.
 
 | Folder | Files | Content |
 |---|---|---|
-| `raman_47/` | 47 `.txt` | Raman spectra of the 47 comparison particles (RAMANtouch export; the header records laser power, exposure and the instrument-internal wavenumber shift listed in ESI Table S2a) |
+| `raman_47/` | 47 `.txt` | Raman spectra of the 47 comparison particles (RAMANtouch export; the header records laser power, exposure and the instrument-internal wavenumber shift listed in Table S2a of the Supplemental Material) |
 | `ftir_47/` | 47 `.CSV` | ATR-FTIR spectra of the same 47 particles (OMNIC export, wavenumber-absorbance) |
-| `standards_raman/` | 6 `.txt` | Silicon and polystyrene (ASTM E1840) axis standards, two sessions (Code 1 §13); LDPE and isotactic PP pellets (Code 1 §14); ESI Table S2b |
+| `standards_raman/` | 6 `.txt` | Silicon and polystyrene (ASTM E1840) axis standards, two sessions (Code 1 §13); LDPE and isotactic PP pellets (Code 1 §14); Table S2b of the Supplemental Material |
 | `standards_ftir/` | 2 `.CSV` | LDPE and isotactic PP pellets, ATR-FTIR (Code 2 §0.5) |
 | `raw_manifest.csv` | | every file with its folder, size in bytes and SHA-256 |
 
